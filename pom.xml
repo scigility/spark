@@ -286,6 +286,14 @@
   </properties>
   <repositories>
     <repository>
+      <id>cloudera</id>
+      <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
+      <name>Cloudera Repositories</name>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
       <id>gcs-maven-central-mirror</id>
       <!--
         Google Mirror of Maven Central, placed first so that it's used instead of flaky Maven Central.
@@ -316,6 +324,11 @@
     </repository>
   </repositories>
   <pluginRepositories>
+    <pluginRepository>
+      <id>cloudera</id>
+      <name>Cloudera Repositories</name>
+      <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
+    </pluginRepository>
     <pluginRepository>
       <id>gcs-maven-central-mirror</id>
       <!--
@@ -3296,6 +3309,14 @@
         <hadoop-client-api.artifact>hadoop-client</hadoop-client-api.artifact>
         <hadoop-client-runtime.artifact>hadoop-yarn-api</hadoop-client-runtime.artifact>
         <hadoop-client-minicluster.artifact>hadoop-client</hadoop-client-minicluster.artifact>
+      </properties>
+    </profile>
+
+    <!-- added custom Hadoop profile linking to the CDP-7.1.7 hadoop version -->
+    <profile>
+      <id>hadoop-3.1.1-cdp7.1.7</id>
+      <properties>
+        <hadoop.version>3.1.1.7.1.7.0-551</hadoop.version>
       </properties>
     </profile>
 
